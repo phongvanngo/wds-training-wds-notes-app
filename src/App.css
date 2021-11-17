@@ -1,38 +1,188 @@
 .App {
-  text-align: center;
+  max-width: 1000px;
+  /* width: 1000px; */
+  margin: auto;
+  padding: 20px 10px 0px 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* header ---------------------------------------- */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-weight: 500;
+  margin: 0px;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* search bar ------------------------------------ */
+
+.search-bar {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.search-bar-container {
+  background-color: #e6dfdf;
+  border-radius: 8px;
+  padding: 3px 10px 3px 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: #e6dfdf;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+/* notes container */
+.notes-container {
+  padding-top: 20px;
+  width: 100%;
+  justify-content: space-between;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+/* note item */
+.note-item-container {
+  /* width: 100%; */
+  min-height: 200px;
+  background-color: #ffd07f;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-item-container .content {
+  flex: 1;
+}
+
+.note-item-container .note-footer {
+  display: flex;
+  height: max-content;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-item-container .note-footer .time {
+  align-items: center;
+  flex: 1;
+}
+.note-item-container .note-footer .utilities {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+/* new note */
+.new {
+  background-color: gainsboro;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  background-color: inherit;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save-btn {
+  width: 100%;
+  appearance: none;
   color: white;
+  font-weight: 500;
+  border: none;
+  background-color: #3f3d3d9a;
+  transition: all ease 0.3s;
+  padding: 5px 5px;
+  border-radius: 20px;
+}
+.save-btn:hover {
+  background-color: #9690908c;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.save-btn:focus {
+  outline: none;
 }
