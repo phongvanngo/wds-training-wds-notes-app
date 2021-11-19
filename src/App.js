@@ -31,11 +31,17 @@ function App() {
     setNotes(new_notes);
   };
 
+  const deleteNote = (note_id) => {
+    console.log(note_id);
+    let new_notes = notes.filter((note) => note.id !== note_id);
+    setNotes(new_notes);
+  };
+
   return (
     <div className="App">
       <Header />
       <SearchBar />
-      <NoteCard notes={notes} addNewNote={addNewNote} />
+      <NoteCard notes={notes} addNewNote={addNewNote} deleteNote={deleteNote} />
     </div>
   );
 }
