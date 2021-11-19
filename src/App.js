@@ -11,25 +11,33 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const filterNoteByKeyword = (keyword) => {
-    const new_notes = notes.filter((note) => note.content.includes(keyword));
-    setFilteredNote(new_notes);
+    const newNotes = notes.filter((note) => note.content.includes(keyword));
+    setFilteredNote(newNotes);
   };
 
   const addNewNote = (note) => {
-    let new_notes = [...notes];
-    new_notes.push(note);
-    setNotes(new_notes);
-    saveToLocalStorage("notes", new_notes);
+    let newNotes = [...notes];
+    newNotes.push(note);
+    setNotes(newNotes);
+    saveToLocalStorage("notes", newNotes);
   };
 
   const deleteNote = (note_id) => {
-    let new_notes = notes.filter((note) => note.id !== note_id);
-    setNotes(new_notes);
-    saveToLocalStorage("notes", new_notes);
+    let newNotes = notes.filter((note) => note.id !== note_id);
+    setNotes(newNotes);
+    saveToLocalStorage("notes", newNotes);
   };
 
   const searchNote = (keyword) => {
     setSearchKeyword(keyword);
+  };
+
+  const editNote = (noteToEdit) => {
+    const index = notes.findIndex((note) => note.id === noteToEdit.id);
+    let newNotes = [...notes];
+    newNotes[index] = noteToEdit;
+    setNotes(newNotes);
+    saveToLocalStorage("notes", newNotes);
   };
 
   useEffect(() => {
@@ -49,6 +57,7 @@ function App() {
       <Header />
       <SearchBar searchNote={searchNote} />
       <NoteCard
+        editNote={editNote}
         notes={filteredNote}
         addNewNote={addNewNote}
         deleteNote={deleteNote}

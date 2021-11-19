@@ -4,17 +4,16 @@ import CardItem from "./CardItem";
 export default function CardList(props) {
   const notes = props.notes;
   const deleteNote = props.deleteNote;
+  const editNote = props.editNote;
 
   return (
     <>
       {notes.map((note) => {
-        const { id, content, createdAt } = note;
         return (
           <CardItem
-            key={id}
-            content={content}
-            createdAt={createdAt}
-            id={id}
+            key={note.id}
+            note={note}
+            editNote={editNote}
             deleteNote={deleteNote}
           />
         );
