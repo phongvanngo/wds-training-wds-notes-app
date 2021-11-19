@@ -6,7 +6,6 @@ export default function CardItem(props) {
   const handleDeleteNote = () => {
     deleteNote(id);
   };
-  console.log(props);
   return (
     <div className="note-item-container">
       <div className="content">{content}</div>
