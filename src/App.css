@@ -133,6 +133,7 @@ input:checked + .slider:before {
 
 .note-item-container .content {
   flex: 1;
+  white-space: pre-line;
 }
 
 .note-item-container .note-footer {
