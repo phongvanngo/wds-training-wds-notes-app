@@ -152,6 +152,10 @@ input:checked + .slider:before {
   align-items: center;
   column-gap: 10px;
 }
+.note-item-container .note-footer .utilities i:hover{
+  color:gray;
+  transition: all ease 0.2s;
+}
 
 /* new note */
 .new {

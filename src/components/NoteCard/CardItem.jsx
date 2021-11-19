@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { FormatDateTime } from "../../utils";
 
 export default function CardItem(props) {
-  const { id, note, editNote, deleteNote } = props;
+  const { note, editNote, deleteNote } = props;
 
   const [isOpenUpdateForm, setIsOpenUpdateForm] = useState(false);
 
   const handleDeleteNote = () => {
-    deleteNote(id);
+    deleteNote(note.id);
   };
   return (
     <>
@@ -50,6 +50,7 @@ function UpdateCardForm({ note, editNote, setIsOpenUpdateForm }) {
 
   useEffect(() => {
     noteRef.current.value = note.content;
+    noteRef.current.focus();
   }, []);
 
   const handleUpdateNote = () => {
