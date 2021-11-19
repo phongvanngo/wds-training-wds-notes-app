@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
+import { generateId } from "../../utils";
 
 export default function CardForm({ addNewNote }) {
   const handleAddNewNote = () => {
     const content = noteRef.current.value;
     const createdAt = Date.now();
-    const new_note = { content: content, createdAt: createdAt };
+    const id = generateId();
+    const new_note = { id: id, content: content, createdAt: createdAt };
     addNewNote(new_note);
+    noteRef.current.value = "";
   };
   const noteRef = useRef(null);
   return (

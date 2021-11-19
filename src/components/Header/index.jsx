@@ -5,9 +5,9 @@ export default function Header() {
     <div className="header">
       <h1>Notes</h1>
       <div className="dark-mode">
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" />
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
         <span> Dark mode</span>
       </div>
